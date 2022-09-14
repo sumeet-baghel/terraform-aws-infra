@@ -21,7 +21,7 @@ I've created a VPC module, wrapped the RDS module provided by AWS, and used an a
 
 I've tried to keep it flexible and minimal so that it can be used wherever there's a need to create a VPC. It takes inputs such as VPC name, CIDR range, AZs, and tags.
 
-For more information, please go through the readme.
+For more information, please go through the [readme](https://github.com/sumeet-baghel/terraform-aws-infra/tree/main/modules/vpc).
 
 **RDS Module**
 
@@ -29,7 +29,7 @@ RDS has a ton of options exposed in the [AWS module](https://registry.terraform.
 
 The wrapper provides helpful features such as a boolean input to enable or disable replicas and store the master and replica credentials in the AWS secrets manager. The secrets manager's secret names are available as an output.
 
-For more information, please go through the readme.
+For more information, please go through the [readme](https://github.com/sumeet-baghel/terraform-aws-infra/tree/main/modules/rds).
 
 **Awesome EC2 Autoscaling Module**
 
@@ -121,4 +121,3 @@ You can use the examples provided in the repository, modify them as per your req
   ```
 
   Terraform should output the secrets manager secret containing the DB credentials. Since the DB is using private subnets, it isn't accessible directly from the internet. If you want to access the DB, you can modify the bastion host and its security group to do that or use a VPN CIDR range instead.
-  
