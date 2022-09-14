@@ -1,0 +1,6 @@
+aws_region = "ap-south-1"
+vpc_name = "Test VPC"
+deploy_stage = "testing"
+app_name = "nginx-service"
+namespace = "demo"
+ssh_key_pair = "sbaghel-test-rsa"

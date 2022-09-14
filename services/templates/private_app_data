@@ -1,0 +1,19 @@
+#! /bin/bash
+# The output logs for these go here /var/log/cloud-init-output.log
+# This file is stored in /var/lib/cloud/instance/
+set -x
+
+# Update packages and install docker
+yum update -y \
+&& yum install -y docker
+
+# Start the docker service
+service docker start
+
+# Replace this sample nginx container with your app container.
+
+# Run the sample nginx container
+docker container run \
+    --name "sample-nginx-service" \
+    --publish 80:80 \
+    --detach nginx:1.23.1-alpine
