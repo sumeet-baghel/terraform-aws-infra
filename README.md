@@ -54,7 +54,7 @@ You can use the examples provided in the repository, modify them as per your req
 **Important Notes:**
 - Unfortunately, M1 mac doesn't support some of the terraform providers used in this terraform so I tested and developed this in a container with terraform version `0.14.11`. If you're using the latest version of terraform, you might experience some minor while applying the terraform.
 - The public and private services are hosting a sample nginx service included in the userdata scripts.
-- Provide the desired AWS profile in `providers.tf` file present in the modules and some other directories before running the terraform.
+- Provide the desired AWS profile in `provider.tf` file present in the modules and some other directories before running the terraform.
 - Go through the `variables.tf`, and `testing.auto.tfvars` files to change the inputs as per your requirement.
 - [Create a Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html) to SSH into the private instances via the bastion host.
 
