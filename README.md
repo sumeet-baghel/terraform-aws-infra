@@ -11,6 +11,8 @@ This repository contains terraform required to deploy scalable and available inf
 
 ## Architectural Diagram
 
+![image](https://user-images.githubusercontent.com/62604696/190321794-3749ab98-f07d-467e-9536-3835ba2b5eb5.png)
+
 ## Terraform
 
 ### Modules
