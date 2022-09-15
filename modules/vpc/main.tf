@@ -22,8 +22,8 @@ resource "aws_subnet" "public" {
   availability_zone = var.availability_zones[count.index]
 
   tags = merge({
-    Name = "Application-Public-AZ${count.index + 1}"
-    "subnet/type"                = "public"
+    Name          = "Application-Public-AZ${count.index + 1}"
+    "subnet/type" = "public"
   }, var.additional_public_subnet_tags)
 }
 
@@ -35,8 +35,8 @@ resource "aws_subnet" "private" {
   availability_zone = var.availability_zones[count.index]
 
   tags = merge({
-    Name = "Application-Private-AZ${count.index + 1}"
-    "subnet/type"                = "private"
+    Name          = "Application-Private-AZ${count.index + 1}"
+    "subnet/type" = "private"
   }, var.additional_private_subnet_tags)
 }
 

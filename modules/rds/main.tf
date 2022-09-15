@@ -2,7 +2,7 @@
 resource "random_string" "admin_user" {
   length    = 15
   special   = false
-  numeric    = false
+  numeric   = false
   min_upper = 0
   # Preventing this from changing as it would recreate the DB instance
   lifecycle {
@@ -15,7 +15,7 @@ resource "random_string" "admin_user" {
 resource "random_string" "db_name" {
   length    = 15
   special   = false
-  numeric    = false
+  numeric   = false
   min_upper = 0
   # Preventing this from changing as it would recreate the DB instance
   lifecycle {
@@ -55,14 +55,14 @@ resource "aws_security_group" "db_access" {
 resource "aws_cloudwatch_log_group" "rds_cloudwatch_loggroup_master" {
   name              = "/aws/rds/instance/${local.master_identifier}/postgresql"
   retention_in_days = local.cloudwatch_log_retention_days
-  tags = var.tags
+  tags              = var.tags
 }
 
 resource "aws_cloudwatch_log_group" "rds_cloudwatch_loggroup_replica" {
   count             = var.pg_replica ? 1 : 0
   name              = "/aws/rds/instance/${local.replica_identifier}/postgresql"
   retention_in_days = local.cloudwatch_log_retention_days
-  tags = var.tags
+  tags              = var.tags
 }
 
 # RDS module -> https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/latest
@@ -73,11 +73,11 @@ module "master" {
 
   identifier = local.master_identifier
 
-  engine                = "postgres"
-  engine_version        = var.pg_version
-  instance_class        = var.instance_type
-  allocated_storage     = var.disk_size_gib
-  storage_type          = "gp2"
+  engine            = "postgres"
+  engine_version    = var.pg_version
+  instance_class    = var.instance_type
+  allocated_storage = var.disk_size_gib
+  storage_type      = "gp2"
 
   db_name                = local.pg_db_name
   username               = local.pg_admin_username
@@ -163,10 +163,10 @@ module "replica" {
 
   identifier = local.replica_identifier
 
-  engine_version        = var.pg_version
-  instance_class        = local.pg_replica_instance
-  allocated_storage     = var.disk_size_gib
-  storage_type          = "gp2"
+  engine_version    = var.pg_version
+  instance_class    = local.pg_replica_instance
+  allocated_storage = var.disk_size_gib
+  storage_type      = "gp2"
 
   # We don't need to set username and password for replica
   username               = null

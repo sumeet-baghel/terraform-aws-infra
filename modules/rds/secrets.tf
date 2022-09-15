@@ -20,7 +20,7 @@ resource "aws_secretsmanager_secret" "pg_master_connection" {
   # Secrets must be stored in a path specifying the relevant application/service.
   name                    = "/rds/${var.deploy_stage}/${var.app}/${module.master.db_instance_id}/pg_master_connection"
   recovery_window_in_days = 0
-  tags = var.tags
+  tags                    = var.tags
 }
 
 resource "aws_secretsmanager_secret_version" "pg_master_connection" {
@@ -33,7 +33,7 @@ resource "aws_secretsmanager_secret" "pg_replica_connection" {
   # Secrets must be stored in a path specifying the relevant application/service.
   name                    = "/rds/${var.deploy_stage}/${var.app}/${module.replica[0].db_instance_id}/pg_replica_connection"
   recovery_window_in_days = 0
-  tags = var.tags
+  tags                    = var.tags
 }
 
 resource "aws_secretsmanager_secret_version" "pg_replica_connection" {

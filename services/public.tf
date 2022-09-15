@@ -35,14 +35,14 @@ resource "aws_lb" "app_lb" {
   name               = "${var.namespace}-${local.public_app_name}"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [
+  security_groups = [
     aws_security_group.app_lb.id,
     data.aws_security_group.default.id,
   ]
   subnets = data.aws_subnets.public.ids
 
   enable_deletion_protection = false
-  tags = local.common_tags
+  tags                       = local.common_tags
 }
 
 resource "aws_lb_listener" "app_listener" {
@@ -62,7 +62,7 @@ resource "aws_lb_target_group" "app_lb_target" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = data.aws_vpc.vpc.id
-  tags = local.common_tags
+  tags     = local.common_tags
 }
 
 module "public_app" {
@@ -96,7 +96,7 @@ module "public_app" {
 
   tags = merge(local.common_tags,
     {
-        "app" = local.public_app_name
+      "app" = local.public_app_name
     }
   )
 }

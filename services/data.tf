@@ -24,7 +24,7 @@ data "aws_vpc" "vpc" {
 }
 
 data "aws_security_group" "default" {
-  name = "default"
+  name   = "default"
   vpc_id = data.aws_vpc.vpc.id
 }
 

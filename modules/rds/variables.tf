@@ -95,8 +95,8 @@ variable "log_retention_days" {
 
 variable "multi_az" {
   description = "Enable multi-az for the RDS instance."
-  type = bool
-  default = false
+  type        = bool
+  default     = false
 }
 
 variable "vpc_id" {

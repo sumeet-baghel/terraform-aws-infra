@@ -41,7 +41,7 @@ module "private_app" {
 
   tags = merge(local.common_tags,
     {
-        "app" = local.private_app_name
+      "app" = local.private_app_name
     }
   )
 }
